@@ -1,10 +1,14 @@
+#
 1. Phân tích kiến trúc:
-Đề xuất kiến trúc cho hệ thống Payroll.
-Tại sao chọn kiến trúc này?: Giải thích cách kiến trúc này giúp giải quyết vấn đề quản lý bảng lương (ví dụ: xử lý bảng chấm công, thanh toán, và dữ liệu nhân viên).
-Ý nghĩa các thành phần: Mô tả mục đích của từng thành phần trong kiến trúc (ví dụ: cơ sở dữ liệu để lưu trữ dữ liệu nhân viên, mô-đun nhập bảng chấm công, bộ xử lý thanh toán, v.v.).
-Biểu đồ Package: Bạn có thể sử dụng các công cụ như Lucidchart, draw.io hoặc thậm chí vẽ biểu đồ bằng ký tự trong Markdown để thể hiện biểu đồ package mô tả kiến trúc cấp cao của hệ thống. Các package ví dụ có thể bao gồm:
-UI: Xử lý giao diện người dùng.
-Business Logic: Các chức năng chính của hệ thống như tính toán thanh toán.
-Persistence Layer: Tương tác với cơ sở dữ liệu.
-Integration: Quản lý việc giao tiếp với các hệ thống bên ngoài như ngân hàng cho thanh toán trực tiếp.
-![diagram](https://www.planttext.com/api/plantuml/png/T98nQiCm58Ptd-AHlHVmK4AN4F3GeOMkgYnaKLSsbXHgIkRCdKCXK48X49gjrA9q4EGUEa6lKDbnI5HX3Gz9l_G-_b_wrJzZ8L4brMCUHIN23uWI62LMBqkudOxWEG8tS8w4SEi4rQJgzmvZmb01ARDwmO7J_SxgLmQf-UAqEpIFva7RAoKO9wvVKb26VSHHwoGFT6Vr5dBp3NadSPgrq19cLgy7KTUa4an8mZ7nEMT2w2dPxnJ8okeFc9cLcwdQOPerXxJTorkm6cHEkIIqGf8Lt6UU2I7pncnn1fdLRsLR5o1TVU4KxiscJROmAtP27b_Yul9VOZ5CN4uCQhDHW6tphk2f3oxoJxghGGZnmNfMsEOJ3_aEsWI-Oi-DUw0byptrTg8nuMdxyVu0003__mC0)
+ - Đề xuất kiến trúc cho hệ thống Payroll:Hệ thống Payroll sẽ sử dụng kiến trúc phân lớp bao gồm 4 thành phần chính: UI, Business Logic, Persistence Layer, và Integration. 
+ - Tại sao chọn kiến trúc này:
+    + Tính mô-đun và bảo trì dễ dàng : Việc phân tách các chức năng lớp riêng biệt cho phép thay đổi hoặc mở rộng từng lớp mà không ảnh hưởng đến các lớp khác.
+   + Tính linh hoạt : Kiến trúc phân lớp cho phép mở rộng hệ thống một cách linh hoạt, đặc biệt là khi hệ thống cần tích hợp các dịch vụ bên ngoài (ví dụ: ngân hàng).
+   + Bảo mật : Với kiến ​​trúc phân lớp, các dữ liệu nhạy cảm như thông tin nhân viên và thanh toán có thể được quản lý kín ở lớp logic và lưu trữ.
+ - Ý nghĩa các thành phần:
+   + UI: Xử lý giao diện người dùng.
+   + Business Logic: Các chức năng chính của hệ thống như tính toán thanh toán.
+   + Persistence Layer: Tương tác với cơ sở dữ liệu.
+   + Integration: Quản lý việc giao tiếp với các hệ thống bên ngoài như ngân hàng cho thanh toán trực tiếp.
+- Biểu đồ Package:
+![Package Digaram](https://www.planttext.com/api/plantuml/png/Z9D1Qy8m583l_HKFp_CFU1YoYmWoTfYmQvQ69bXVNPiKPNZslFCOw4G6Wip3BhEC7GB-Z_o2_OKbnMgBZjb32NalxttvNlkJVJSJIMAf-g6Nz0H272NC6n3Q8m63MhTTWqSFW8OaIQ3Rxf0HY_CTzxG4YS0N9fiWOB1Tc-n5WAy_CTWbN7EpMGr0Sls10KXR_jvivdP9RM3H1-hsRUxO6tk7fbSg4SXilquK25e6A29veCfoPx8LXFeBGXUpEDnn3I0rsMANSgjNo456UeOGRjVRcGL9zHI6nT5pu6vOd8X4CgGCSe8oNobOfUjirmfaRB9tyDqhT70AaEjNX5Je9HQCiHh1K5a0MU3iK2_EmckZP45Cf8Ym35RQhe9P9vG3DzayL_Kit7fY9sQo9zlhtf9Pbv6UYk809tk93ufKqp5mz-5wUY0hlfbw_VBK-1hGilO5ZFHI0JMRDxKVXtSYtLKvajmewtK3bKvYQYrXsVPVzOxSDFwpKhwcrsJekx_d5m00__y30000)
