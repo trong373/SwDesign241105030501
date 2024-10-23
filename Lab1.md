@@ -96,8 +96,10 @@
 - Biểu đồ lớp mô tả các lớp phân tích:
   
   ![Class Diagram](https://www.planttext.com/api/plantuml/png/P91D2i9034RtESLSe3SGgL0NBWGNWklG2LewFv9a5aKycGkFv1Mq9LIgkoIyBtdazNZMeiXQOW3fk-Gu2q4RKCHjupNaWSZTmBdAaRMxPceJHe8x67li8hN8tbYFIbDnoONbbBad_m_lCU6Ps39gKzl_qT8Ytz011yuX62mOa8TDp2Nf8jsWuXYQvLTLjPulmkov69i8_8gDZDq5g2dvyKrl0000__y30000)
-- Giải thích biểu đồ lớp
+- Giải thích biểu đồ lớp:
    + Employee : Ghi lại số giờ làm việc vào Timecard và gửi dữ liệu đến TimecardManager để lưu trữ.
    + Timecard : Quản lý các thông tin về thời gian làm việc, gồm số giờ làm và ngày làm việc. Dữ liệu này được gửi đến TimecardManager để lưu trữ và cập nhật cho bảng lương.
    + TimecardManager : Chịu trách nhiệm lưu trữ thông tin bảng chấm công và gửi thông tin này cho Payroll để tính lương.
    + Payroll : Tính toán lương dựa trên thông tin chấm công do TimecardManager cung cấp.
+## 5. Hợp nhất kết quả phân tích
+- Mô tả: Hai quy trình Payment và Maintain Timecard  liên kết chặt chẽ với nhau. Nhân viên nhập giờ làm việc thông qua bảng chấm công, hệ thống tính toán lương dựa trên giờ làm và sau đó thực hiện thanh toán.
