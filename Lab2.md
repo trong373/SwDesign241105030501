@@ -103,7 +103,8 @@
     * Thuộc tính: sessionID, userRole, startTime
     * Quan hệ: Được tạo bởi LoginManager khi đăng nhập thành công, cung cấp trạng thái cho User.
 - Biểu đồ lớp mô tả các lớp phân tích:
-    ![Class Diagram](https://www.planttext.com/api/plantuml/png/P93D3S8m38NldY8BT0LKH2z8SE5d04EjAY9rgjXL3uZ9E30IAv2qfRJYPlkzPt_9-_dAHJ5eMpkGcsKJl11S7OgOir0mTp0cCsqi6MlgcoQAdGybF61qxdnbUO-CrPHmQRHMfRfH-JaBLBoWq6pl9b19h1QTJBE3TpHB7Kd4UXv3CdJROc4VfFIMausWCTlpPzbgWGSBrgH-aVwLyIn0Jboc7_e0003__mC0)
+
+  ![Class Diagram](https://www.planttext.com/api/plantuml/png/P93D3S8m38NldY8BT0LKH2z8SE5d04EjAY9rgjXL3uZ9E30IAv2qfRJYPlkzPt_9-_dAHJ5eMpkGcsKJl11S7OgOir0mTp0cCsqi6MlgcoQAdGybF61qxdnbUO-CrPHmQRHMfRfH-JaBLBoWq6pl9b19h1QTJBE3TpHB7Kd4UXv3CdJROc4VfFIMausWCTlpPzbgWGSBrgH-aVwLyIn0Jboc7_e0003__mC0)
 ## 4. Phân tích ca sử dụng Maintain Employee Information
 
 ## 5. Phân tích ca sử dụng Maintain Purchase Order
