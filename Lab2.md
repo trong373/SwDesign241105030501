@@ -161,7 +161,7 @@
 - Mô tả hành vi thông qua biểu đồ sequence:
   ![Sequence Diagram](https://www.planttext.com/api/plantuml/png/X5F1YjH04BtdA-geCFw01rbc610K9fWWNjjEasucwSuctOivU_Iq9n4HPrn4L0PS58JqOG-zx7_q5-mlMDqxwoIBO227TBtt-jMhohMzEEeqQRMfgwHR2mcjwbX2g5OjfAHlLLLbVQTP3QI3D4iQn0eg6Y8rBEkcKZrZeRISL79HCqhQ8bJonQIKcfPoqh5LMx0sYgwcTT9JpkWwbgRKEP7hWvbvbYHf1WyUeIru24-ujny5N9vw-qwMyCp8M_zxr191J_tmkOU2I0wTsr8EahjF4aw4-oQ1-k6B1Cr3LIktbKcbL0FFlNqleFRshHZ34y3dHZbVe7JUcXvU6Rn0mqi_dA47ol6h1kf-oN84JrTtu9UdLriPd0-_DN2tGUezwOSBWzIVzyVCq6ZkTcYmklg1f18ARyy9w3OqK0flFq3bDlLihnd5Pj1mDr2el3qJCpXn6rW7PmPftdwF-gJ2vFbUKsEKN-auYI0QqUTuBD1Q0roXNGh71cz7ObGPEOsH-66hudsuLmqNiQMzyGD-SJkSXGcPeR7cds1MTUo_7YatlRUl9NQemX3ks9fd4rkbjpk1iH4LSdmJzg4C0uwn_QNE3zc_mAN19V33JevfD_vaaOHtDAh72eL0no6F5p8vGc3uu_u0003__mC0)
 - Xác định một số thuộc tính và quan hệ giữa các lớp phân tích:
- + Lớp PayrollSystem:
+  + Lớp PayrollSystem:
     * Thuộc tính: payrollDate, payFrequency.
     * Quan hệ: Tương tác với các lớp Employee, Timecard, PurchaseOrder, và BankSystem để lấy thông tin và xử lý các thanh toán.
   + Lớp Employee:
