@@ -193,6 +193,7 @@
   + BankSystem xử lý các giao dịch ngân hàng khi phương thức thanh toán là chuyển khoản.
   + Paycheck chứa thông tin phiếu lương, được tạo bởi PayrollSystem khi thanh toán qua thư hoặc trực tiếp.
 ## 7. Viết code Java mô phỏng ca sử dụng Maintain Timecard.
+
 package maintaintimerecard;
 import java.util.ArrayList;
 import java.util.Date;
@@ -257,7 +258,6 @@ class Timecard {
         return "Timecard ID: " + timecardID + ", Date: " + date + ", Hours Worked: " + hoursWorked;
     }
 }
-
 // Lớp TimecardManager 
 class TimecardManager {
     private Map<String, ArrayList<Timecard>> timecardDatabase = new HashMap<>();
@@ -283,7 +283,6 @@ class TimecardManager {
         }
         System.out.println("Timecard not found for update.");
     }
-
     // Xóa một bảng chấm công
     public void deleteTimecard(String employeeID, String timecardID) {
         ArrayList<Timecard> timecards = timecardDatabase.get(employeeID);
@@ -294,7 +293,6 @@ class TimecardManager {
             System.out.println("Timecard not found for deletion.");
         }
     }
-
     // Hiển thị bảng chấm công cho nhân viên
     public void showTimecards(String employeeID) {
         ArrayList<Timecard> timecards = timecardDatabase.get(employeeID);
@@ -308,8 +306,6 @@ class TimecardManager {
         }
     }
 }
-
-
 public class Main {
     public static void main(String[] args) {
         Employee emp1 = new Employee("E001", "Alice");
