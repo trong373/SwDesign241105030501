@@ -199,7 +199,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-// Lớp Employee (Nhân viên)
+// Lớp Employee 
 class Employee {
     private String employeeID;
     private String name;
@@ -218,7 +218,7 @@ class Employee {
     }
 }
 
-// Lớp Timecard (Bảng chấm công)
+// Lớp Timecard 
 class Timecard {
     private String timecardID;
     private Date date;
@@ -258,7 +258,7 @@ class Timecard {
     }
 }
 
-// Lớp TimecardManager (Quản lý bảng chấm công)
+// Lớp TimecardManager 
 class TimecardManager {
     private Map<String, ArrayList<Timecard>> timecardDatabase = new HashMap<>();
 
@@ -309,7 +309,7 @@ class TimecardManager {
     }
 }
 
-// Lớp Main để mô phỏng các thao tác
+
 public class Main {
     public static void main(String[] args) {
         Employee emp1 = new Employee("E001", "Alice");
