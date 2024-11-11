@@ -31,7 +31,6 @@
     * Thuộc tính: filePath, fileName.
     * Quan hệ: Nhận thông tin từ PayrollAdministrator để lưu Report.
 - Biểu đồ lớp mô tả các lớp phân tích:
-
   ![Class Diagram](https://www.planttext.com/api/plantuml/png/X59BRi8m4DtFANo1NA6Y8W9r0KA82uoI0IpiSJIUBgAg9-k28_KA1CUGr6hLtPlFUpDlxE-lwo8gYhvx1_5YsKY818t36CqEUmdElRRUieqgg47C1nXJ6Rpdtkg46Jt19sJIdheWkXIh91PpkwJaeUyeXMbYZJf6nEs4VUT2JxGTD6CfkYQc-HAZQjxYD1Pju2HMK3EZ2Qp4cl0nYCSHDa83f_r9N5b76sGyqMFUSSZiKC_FO9kT_tgegdefZW75RQQEfpCedKuz_qtvkpvp0dDNCouiXbUu_u4R0000__y30000)
 - Giải thích biểu đồ lớp trong hệ thống Create Administrative Report:
   + PayrollAdministrator cung cấp tiêu chí báo cáo qua ReportCriteria và yêu cầu ReportGenerator tạo báo cáo.
@@ -108,15 +107,49 @@
     * Thuộc tính: errorMessage.
     * Quan hệ: Nhận thông tin từ AuthenticationService khi xảy ra lỗi xác thực.
 - Biểu đồ lớp mô tả các lớp phân tích:
+  ![Class Diagram](https://www.planttext.com/api/plantuml/png/V5DBJiCm4Dtd55uc4hr05gX0YuH49KJL0mp9j5WuTfYnMoh4oLXm9Aw0xNoQfX7P97upy-RD6-Vt-sVE5iYwIYNy9hKWmvWK2fZ5Xf74PoByCnFE7nuMkLXRadet03LKE89hNtqmLFRmLz9IFfgTrFU6gfvNwjhPpJHFZ3sDoKHy2gCK5lQEi4Hj9IXEipPKIguL76ElPsIdR4hnbOjROnI2pawARfnz3GG5M6dq6cal2poRUW4MNe2zk1NKROizA5c2nM7xiHbN5pvalO1J_pKo-yOhqB0RsCqDFEdu1TWcBpzgISTSUC7OkKJe3ssFzBpOgsa3RN8LDNJ95me6fYs932qQctl96C2Lh_8aesNngpd4chGwZqVEUCzci-l1xSX5JMOlIsIX0YXAj20L9wUKK32zlDmReaiEmtVBIQOp0yTe0RaWV7V8bZjR6nF3HogtpUQpV_Y6Gn1QHzepkQBmPCAGsFen7E5ea3D31nAYfzs5Zlr3FNe1oTpF6FxQFm000F__0m00)
+
+- Ý nghĩa của biểu đồ lớp trong hệ thống "Login":
   + User nhập thông tin đăng nhập và chuyển tới LoginForm.
   + LoginForm truyền thông tin đăng nhập tới AuthenticationService để kiểm tra.
   + AuthenticationService xác thực thông tin đăng nhập:
     * Nếu thành công: AuthenticationService gọi SessionManager để tạo phiên làm việc, và trả về thông báo đăng nhập thành công cho LoginForm.
     * Nếu thất bại: AuthenticationService trả về thông báo lỗi cho LoginForm, và LoginForm yêu cầu ErrorDisplay hiển thị lỗi cho người dùng.
-- Ý nghĩa của biểu đồ lớp trong hệ thống "Login":
-  ![Class Diagram](https://www.planttext.com/api/plantuml/png/V5DBJiCm4Dtd55uc4hr05gX0YuH49KJL0mp9j5WuTfYnMoh4oLXm9Aw0xNoQfX7P97upy-RD6-Vt-sVE5iYwIYNy9hKWmvWK2fZ5Xf74PoByCnFE7nuMkLXRadet03LKE89hNtqmLFRmLz9IFfgTrFU6gfvNwjhPpJHFZ3sDoKHy2gCK5lQEi4Hj9IXEipPKIguL76ElPsIdR4hnbOjROnI2pawARfnz3GG5M6dq6cal2poRUW4MNe2zk1NKROizA5c2nM7xiHbN5pvalO1J_pKo-yOhqB0RsCqDFEdu1TWcBpzgISTSUC7OkKJe3ssFzBpOgsa3RN8LDNJ95me6fYs932qQctl96C2Lh_8aesNngpd4chGwZqVEUCzci-l1xSX5JMOlIsIX0YXAj20L9wUKK32zlDmReaiEmtVBIQOp0yTe0RaWV7V8bZjR6nF3HogtpUQpV_Y6Gn1QHzepkQBmPCAGsFen7E5ea3D31nAYfzs5Zlr3FNe1oTpF6FxQFm000F__0m00)
 ## 4. Phân tích ca sử dụng Maintain Employee Information
-
+- Xác định các lớp phân tích cho ca sử dụng: Trong ca sử dụng "Maintain Employee Information" , các lớp phân tích chính sẽ bao gồm:
+  + Payroll Administrator: Thực hiện thao tác quản lý nhân viên thông qua yêu cầu tới hệ thống.
+  + Employee: Lưu trữ thông tin chi tiết của từng nhân viên.
+  + EmployeeManager: Thực hiện các thao tác nghiệp vụ cần thiết để duy trì thông tin nhân viên.
+  + Database: Lưu trữ và quản lý dữ liệu lâu dài của nhân viên.
+- Mô tả hành vi thông qua biểu đồ sequence:
+  + Add an Employee
+  ![Sequence Diagram](https://www.planttext.com/api/plantuml/png/T94nIiH058RxdEAnbK8s1qWXkp4MWeB55bg-JORDOF8cP2R27a74mjh65KG821PMcy9Yn7lC2Ro2avZTJS1jXk7Dzt_yC_DJVqwamaALMUh8QqvG2CaSZ9Geu0ANXKZJQPnnub8Ls0nHGZjmSflY4S-H59naUIgMZ9qZuOArKBSTO24gdADapNaOE4uhWl7H1lRXE37rFS5e6iU0jFMEd8tPmctAXojTbH2PzMi9Aj4Vj01bPPJePu8RhYlwJrzQp6PUyZqPE51sTI4LPhtYBdmzcFeE8RArRbtFymxxHRRQcOK5iAxiQGYPgHzv7mq37yw-t_TM3GCOzusNUXLPmApV2D8kzqG9H4rw9zwznkpFEzUsY6MhR72hGNh2A6w--nS00F__0m00)
+  + Update an Employee
+   ![Sequence Diagram](https://www.planttext.com/api/plantuml/png/T98_JiCm6CLtd-9J9nXwWGweb23H0OcXI32wYTLO99yZ_wdeY1WO46U0Wb2bIeY5gHuO8d4Fdu0hOASjJQ2T_Cb-x-VtB7_RpwxIL6gJPqHTSGGf52CqraB26Pr8aMM7ISwHAorfsAGAgWrIU1UFUK5Hmt5UP6B2s2b5EcALQ3KsP17LT4WL2-THZv0A1Es3jRW3Hwcp3mYjyoAXsklm5zqYQxZNLyOEN9Pp0x5Rp0pq8p_O6GLCosU4CI_dk8rlS1GShmMm5RWVrSbHhmC3QIPmRRnAWqxB3s_HdbCZmvvEcQWXzadKWtRzfe5qYnSOEtkpWx6bpmbtzXQztjdxNQujdTpYhV0Ql-pA-xTXmpBqGH56AMyqr5A4f_gQWdBs4H9dto7p-UxClweNvJHUmZ2yRIFC4wOGXqYR29k-WsNOOJaLJMCZI1tIPPY4h_e3003__mC0)
+  + Delete an Employee
+     ![Sequence Diagram](https://www.planttext.com/api/plantuml/png/X98nJiCm58Ptd-Af4mozG0TKWXaw835qWD5DhSOYVOaSksf6nC24H6z0GAXI9IQOae71lOXFm1LmqfQwfOZDUlx_x_cJ_5LzTZF5fDBZc6Gt0a4c6IU4XIgHSCbocSJnwN0iK6HAidh8CcW697Kr4OgKeOBpSHedEUSN3Dc8Dw7rSIT6cM83bl7wdWQ4D21edsp27JYBRFM0qA8yvihby0VT8XkuopV53boRXORGbdCDFUeErPm1HkOPOIBC0W_nDOxgnciAV0tkKPzCWmxqfSvXgbrAWOhCXwien_78SAGYddY8Oq83QFkR-jAMBp2nrUqVZ0C-LwO8NSIMRmYnBGlXahQw3s5gtlypyxjrV5zg-MWAZ63ehFIEod9cgxjLPT_1PovdNhzvZzDwSfEmbjjkszhqLze3KoI_17RBNOx3-WUIRm000F__0m00)
+- Xác định một số thuộc tính và quan hệ giữa các lớp phân tích:
+  + Lớp Payroll Administrator:
+    * Nhiệm vụ: Thực hiện các thao tác quản lý thông tin nhân viên (thêm, cập nhật, xóa).
+    * Thuộc tính: adminID,name,role.
+    * Quan hệ: Gửi yêu cầu quản lý nhân viên đến EmployeeManager để thực hiện các thao tác cần thiết.
+  + Lớp Employee:
+    * Nhiệm vụ: Lưu trữ thông tin chi tiết của nhân viên trong hệ thống.
+    * Thuộc tính:employeeID, name, employeeType, address, socialSecurityNumber, standardTaxDeductions, otherDeductions, phoneNumber, hourlyRate, salary, commissionRate, hourLimit.
+    * Quan hệ: Được quản lý bởi EmployeeManager trong suốt các thao tác thêm, cập nhật, và xóa.
+  + Lớp EmployeeManager:
+    * Nhiệm vụ: Xử lý các thao tác nghiệp vụ liên quan đến thông tin nhân viên (thêm, cập nhật, xóa).
+    * Thuộc tính: employeeList.
+    * Quan hệ:Nhận yêu cầu từ Payroll Administrator và thực hiện các thao tác nghiệp vụ cần thiết ;tương tác với Database để lưu trữ, truy xuất và cập nhật dữ liệu nhân viên.
+  + Lớp Database:
+    * Nhiệm vụ: Quản lý việc lưu trữ và truy xuất thông tin nhân viên từ cơ sở dữ liệu.
+    * Thuộc tính: employeeRecords.
+    * Quan hệ: Nhận các yêu cầu lưu trữ, truy xuất, và cập nhật từ EmployeeManager ;cung cấp khả năng lưu trữ lâu dài cho dữ liệu nhân viên.
+- Biểu đồ lớp mô tả các lớp phân tích:
+  ![Class Diagram](https://www.planttext.com/api/plantuml/png/d5HTQi9047xFAVPHeLuWY5X82uAMebvWp8wwk3zXPcCRIa_MXnwfL-YcJMARn52QXn2--URRcMyc-_7sFcSFv7EZ8pufAyWnHga6Pl481JcjRwLHLh4dy8x4IoJ2Cn5Geeia5XjFoXugr8B15XGaBj1hL6dVcKox0h7HmmhuYsJDtHPPEmHI4ZAtK7Qf0ht1D2VbYuVSx93Q50zM0iajF2SeyzGhPuDCulATnehZ_17fQZGxEekzsaUNaoxMuB6Lmg21YXQOEcCKSpYX9wEKMYgZV8DtB5s1XGDInzbbc64iolUqfiw-AA9qhOP6okvTt8YDOt5sIbQyF9EXf8RQdTbDHP6B0HM96WTLVjFtoifXSXsj4WveaNxKkKX6u-u69k1X1zpTm3McZcIOxWgoQTrMsp66SxU3QmqJ1XNiIHZguhVNtqNzrt43TAeZzowiS1X0sAy1wuDDlR__P3BhB5eSzCilZjgHajtu70jbVHXCwbayAN_iPJVtmaKqcgELvVtq2G00__y30000)
+- Ý nghĩa của biểu đồ lớp trong hệ thống " Maintain Employee Information":
+  + PayrollAdministrator tương tác EmployeeManager để quản lý nhân viên.
+  + EmployeeManager tương tác với cả hai để quản lý hồ sơ nhân viên Employee và Database xử lý lưu trữ.
 ## 5. Phân tích ca sử dụng Maintain Purchase Order
 
 ## 6. Phân tích ca sử dụng Run Payroll
