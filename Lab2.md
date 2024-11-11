@@ -78,3 +78,34 @@
   + ReportCriteria nhận thông tin từ Employee và gửi đến ReportGenerator để tạo báo cáo. Nếu báo cáo theo dự án, ReportCriteria sẽ kết nối với ProjectDatabase để nhận mã phí dự án.
   + ReportGenerator tạo báo cáo Report dựa trên các tiêu chí nhận từ ReportCriteria.
   + FileManager quản lý việc lưu trữ Report cuối cùng nếu nhân viên yêu cầu lưu. 
+## 3. Phân tích ca sử dụng Login
+- Xác định các lớp phân tích cho ca sử dụng: Trong ca sử dụng " Login" , các lớp phân tích chính sẽ bao gồm:
+  + User: Đại diện cho người dùng của hệ thống, có thể là nhân viên hoặc quản trị viên Payroll.
+  + LoginManager: Quản lý quy trình đăng nhập, xử lý xác thực thông tin đăng nhập.
+  + Database: Lưu trữ thông tin người dùng để xác minh tài khoản.
+  + Session: Đại diện cho phiên làm việc của người dùng sau khi đăng nhập thành công.
+- Mô tả hành vi thông qua biểu đồ sequence:![Sequence Diagram](https://www.planttext.com/api/plantuml/png/PD2nJiCm40RWtKznwjGEVO4Eg4XiG1T0OdKJox5epi7d57O6PXu0AHKR4X832ydGmHNluIVW5JWJ5LfrEbi-V_VhlhlrbBnqlYuNWcuCWhEaXCoyTJ2u8kK680cEqrs8tmBZ8pYpsk2vHAcLWmdCYjY-LU2By84QF2kRfyq37x5_6DOCeImLB4C3bIIwiouVYJs6sHFfvLoIOl8wh38e3HQxAkglzzWz6yZ39shnrpu-Z7GQsxM7spgsBt2_jGu6NYWYOv7xBsExib0L9hmYB49JmjB4xZ638R9K_nifJyCbIwb6OYka2FrwsEeJpmEB-ulO_Il4L66Uzlu3003__mC0)
+- Xác định một số thuộc tính và quan hệ giữa các lớp phân tích:
+  + User:
+    * Nhiệm vụ: Nhập thông tin đăng nhập và gửi yêu cầu vào hệ thống để xác thực.
+    * Thuộc tính: username, password.
+    * Quan hệ: Tương tác với LoginManager để thực hiện đăng nhập.
+  + LoginManager:
+    * Nhiệm vụ: Xử lý yêu cầu đăng nhập từ người dùng, gửi yêu cầu xác minh tới Database, và tạo Session nếu đăng nhập thành công.
+    * Thuộc tính: loginAttempts
+    * Quan hệ: Nhận yêu cầu từ User và xác thực với Database.
+  + Database:
+    * Nhiệm vụ: Lưu trữ thông tin người dùng và cung cấp thông tin xác thực cho LoginManager khi có yêu cầu.
+    * Thuộc tính: userCredentials, userRoles
+    * Quan hệ: Xác thực thông tin đăng nhập cho LoginManager.
+  + Session:
+    * Nhiệm vụ: Quản lý trạng thái đăng nhập của người dùng trong hệ thống sau khi đăng nhập thành công.
+    * Thuộc tính: sessionID, userRole, startTime
+    * Quan hệ: Được tạo bởi LoginManager khi đăng nhập thành công, cung cấp trạng thái cho User.
+- Biểu đồ lớp mô tả các lớp phân tích:
+    ![Class Diagram](https://www.planttext.com/api/plantuml/png/P93D3S8m38NldY8BT0LKH2z8SE5d04EjAY9rgjXL3uZ9E30IAv2qfRJYPlkzPt_9-_dAHJ5eMpkGcsKJl11S7OgOir0mTp0cCsqi6MlgcoQAdGybF61qxdnbUO-CrPHmQRHMfRfH-JaBLBoWq6pl9b19h1QTJBE3TpHB7Kd4UXv3CdJROc4VfFIMausWCTlpPzbgWGSBrgH-aVwLyIn0Jboc7_e0003__mC0)
+## 4. Phân tích ca sử dụng Maintain Employee Information
+
+## 5. Phân tích ca sử dụng Maintain Purchase Order
+
+## 6. Phân tích ca sử dụng Run Payroll
