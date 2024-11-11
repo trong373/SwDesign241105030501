@@ -192,3 +192,140 @@
   + Employee chứa thông tin cá nhân và lương, sử dụng Timecard và PurchaseOrder để cung cấp thông tin cần thiết cho PayrollSystem.
   + BankSystem xử lý các giao dịch ngân hàng khi phương thức thanh toán là chuyển khoản.
   + Paycheck chứa thông tin phiếu lương, được tạo bởi PayrollSystem khi thanh toán qua thư hoặc trực tiếp.
+## 7. Viết code Java mô phỏng ca sử dụng Maintain Timecard.
+package maintaintimerecard;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+// Lớp Employee (Nhân viên)
+class Employee {
+    private String employeeID;
+    private String name;
+
+    public Employee(String employeeID, String name) {
+        this.employeeID = employeeID;
+        this.name = name;
+    }
+
+    public String getEmployeeID() {
+        return employeeID;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+// Lớp Timecard (Bảng chấm công)
+class Timecard {
+    private String timecardID;
+    private Date date;
+    private float hoursWorked;
+    private String employeeID;
+
+    public Timecard(String timecardID, Date date, float hoursWorked, String employeeID) {
+        this.timecardID = timecardID;
+        this.date = date;
+        this.hoursWorked = hoursWorked;
+        this.employeeID = employeeID;
+    }
+
+    public String getTimecardID() {
+        return timecardID;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public float getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(float hoursWorked) {
+        this.hoursWorked = hoursWorked;
+    }
+
+    public String getEmployeeID() {
+        return employeeID;
+    }
+
+    @Override
+    public String toString() {
+        return "Timecard ID: " + timecardID + ", Date: " + date + ", Hours Worked: " + hoursWorked;
+    }
+}
+
+// Lớp TimecardManager (Quản lý bảng chấm công)
+class TimecardManager {
+    private Map<String, ArrayList<Timecard>> timecardDatabase = new HashMap<>();
+
+    // Thêm một bảng chấm công mới
+    public void addTimecard(Employee employee, Timecard timecard) {
+        timecardDatabase.putIfAbsent(employee.getEmployeeID(), new ArrayList<>());
+        timecardDatabase.get(employee.getEmployeeID()).add(timecard);
+        System.out.println("Timecard added for Employee ID: " + employee.getEmployeeID());
+    }
+
+    // Cập nhật bảng chấm công
+    public void updateTimecard(String employeeID, String timecardID, float newHoursWorked) {
+        ArrayList<Timecard> timecards = timecardDatabase.get(employeeID);
+        if (timecards != null) {
+            for (Timecard timecard : timecards) {
+                if (timecard.getTimecardID().equals(timecardID)) {
+                    timecard.setHoursWorked(newHoursWorked);
+                    System.out.println("Timecard updated: " + timecard);
+                    return;
+                }
+            }
+        }
+        System.out.println("Timecard not found for update.");
+    }
+
+    // Xóa một bảng chấm công
+    public void deleteTimecard(String employeeID, String timecardID) {
+        ArrayList<Timecard> timecards = timecardDatabase.get(employeeID);
+        if (timecards != null) {
+            timecards.removeIf(timecard -> timecard.getTimecardID().equals(timecardID));
+            System.out.println("Timecard deleted for Employee ID: " + employeeID);
+        } else {
+            System.out.println("Timecard not found for deletion.");
+        }
+    }
+
+    // Hiển thị bảng chấm công cho nhân viên
+    public void showTimecards(String employeeID) {
+        ArrayList<Timecard> timecards = timecardDatabase.get(employeeID);
+        if (timecards != null && !timecards.isEmpty()) {
+            System.out.println("Timecards for Employee ID: " + employeeID);
+            for (Timecard timecard : timecards) {
+                System.out.println(timecard);
+            }
+        } else {
+            System.out.println("No timecards found for Employee ID: " + employeeID);
+        }
+    }
+}
+
+// Lớp Main để mô phỏng các thao tác
+public class Main {
+    public static void main(String[] args) {
+        Employee emp1 = new Employee("E001", "Alice");
+        TimecardManager manager = new TimecardManager();
+
+        // Thêm bảng chấm công
+        Timecard tc1 = new Timecard("TC001", new Date(), 8, emp1.getEmployeeID());
+        manager.addTimecard(emp1, tc1);
+
+        // Cập nhật bảng chấm công
+        manager.updateTimecard(emp1.getEmployeeID(), "TC001", 9);
+
+        // Xóa bảng chấm công
+        manager.deleteTimecard(emp1.getEmployeeID(), "TC001");
+
+        // Hiển thị bảng chấm công
+        manager.showTimecards(emp1.getEmployeeID());
+    }
+}
