@@ -87,34 +87,34 @@
   + ErrorDisplay: Hiển thị thông báo lỗi nếu tên hoặc mật khẩu không hợp lệ.
 - Mô tả hành vi thông qua biểu đồ sequence:![Sequence Diagram](https://www.planttext.com/api/plantuml/png/N8yzRW8n48Lxd-A92YIum1OHD5H0Wv1ehSN25dYCx5au02V82I1begI8HCKM5EOYUmAkW4s11Ctyls_qRlMb7rXwhknQX9KXU1SKX2pPURHcGVaMPC0Wz-8HqVl0o2qD3Pst1SPDVO2DHuAElwHn_RpkQGdIpVbl8pBWJJ1vRC3nXrwFiOr7s5GnLcdmNOcdAYC65Mj5R4h9nj5K-QqfLO5v_2h1kgd_SugdXEDaersbpoIjwc8ZGzWvl-Y8lg95Dde7003__mC0)
 - Xác định một số thuộc tính và quan hệ giữa các lớp phân tích:
- Lớp User:
-
-Nhiệm vụ: Cung cấp thông tin đăng nhập (tên và mật khẩu).
-Thuộc tính: userID, username, password.
-Quan hệ: Tương tác với LoginForm để nhập thông tin đăng nhập.
-Lớp LoginForm:
-
-Nhiệm vụ: Thu thập thông tin đăng nhập từ người dùng và chuyển tới AuthenticationService để xác thực.
-Thuộc tính: inputUsername, inputPassword.
-Quan hệ: Nhận dữ liệu từ User và gửi đến AuthenticationService để xác thực.
-Lớp AuthenticationService:
-
-Nhiệm vụ: Kiểm tra tên và mật khẩu từ LoginForm để xác thực người dùng.
-Thuộc tính: userDatabase (chứa thông tin người dùng hợp lệ).
-Quan hệ: Nhận thông tin từ LoginForm, kiểm tra và gửi phản hồi về trạng thái đăng nhập.
-Lớp SessionManager:
-
-Nhiệm vụ: Khởi tạo phiên làm việc cho người dùng sau khi xác thực thành công.
-Thuộc tính: sessionID, userID, sessionExpiry.
-Quan hệ: Tương tác với AuthenticationService để thiết lập phiên cho người dùng đã đăng nhập thành công.
-Lớp ErrorDisplay:
-
-Nhiệm vụ: Hiển thị thông báo lỗi nếu thông tin đăng nhập không hợp lệ.
-Thuộc tính: errorMessage.
-Quan hệ: Nhận thông tin từ AuthenticationService khi xảy ra lỗi xác thực.
+  + Lớp User:
+    * Nhiệm vụ: Cung cấp thông tin đăng nhập (tên và mật khẩu).
+    * Thuộc tính: userID, username, password.
+    * Quan hệ: Tương tác với LoginForm để nhập thông tin đăng nhập.
+  + Lớp LoginForm:
+    * Nhiệm vụ: Thu thập thông tin đăng nhập từ người dùng và chuyển tới AuthenticationService để xác thực.
+    * Thuộc tính: inputUsername, inputPassword.
+    * Quan hệ: Nhận dữ liệu từ User và gửi đến AuthenticationService để xác thực.
+  + Lớp AuthenticationService:
+    * Nhiệm vụ: Kiểm tra tên và mật khẩu từ LoginForm để xác thực người dùng.
+    * Thuộc tính: userDatabase .
+    * Quan hệ: Nhận thông tin từ LoginForm, kiểm tra và gửi phản hồi về trạng thái đăng nhập.
+  + Lớp SessionManager:
+    * Nhiệm vụ: Khởi tạo phiên làm việc cho người dùng sau khi xác thực thành công.
+    * Thuộc tính: sessionID, userID, sessionExpiry.
+    * Quan hệ: Tương tác với AuthenticationService để thiết lập phiên cho người dùng đã đăng nhập thành công.
+  + Lớp ErrorDisplay:
+    * Nhiệm vụ: Hiển thị thông báo lỗi nếu thông tin đăng nhập không hợp lệ.
+    * Thuộc tính: errorMessage.
+    * Quan hệ: Nhận thông tin từ AuthenticationService khi xảy ra lỗi xác thực.
 - Biểu đồ lớp mô tả các lớp phân tích:
-
-  ![Class Diagram](https://www.planttext.com/api/plantuml/png/P93D3S8m38NldY8BT0LKH2z8SE5d04EjAY9rgjXL3uZ9E30IAv2qfRJYPlkzPt_9-_dAHJ5eMpkGcsKJl11S7OgOir0mTp0cCsqi6MlgcoQAdGybF61qxdnbUO-CrPHmQRHMfRfH-JaBLBoWq6pl9b19h1QTJBE3TpHB7Kd4UXv3CdJROc4VfFIMausWCTlpPzbgWGSBrgH-aVwLyIn0Jboc7_e0003__mC0)
+  + User nhập thông tin đăng nhập và chuyển tới LoginForm.
+  + LoginForm truyền thông tin đăng nhập tới AuthenticationService để kiểm tra.
+  + AuthenticationService xác thực thông tin đăng nhập:
+    * Nếu thành công: AuthenticationService gọi SessionManager để tạo phiên làm việc, và trả về thông báo đăng nhập thành công cho LoginForm.
+    * Nếu thất bại: AuthenticationService trả về thông báo lỗi cho LoginForm, và LoginForm yêu cầu ErrorDisplay hiển thị lỗi cho người dùng.
+- Ý nghĩa của biểu đồ lớp trong hệ thống "Login":
+  ![Class Diagram](https://www.planttext.com/api/plantuml/png/V5DBJiCm4Dtd55uc4hr05gX0YuH49KJL0mp9j5WuTfYnMoh4oLXm9Aw0xNoQfX7P97upy-RD6-Vt-sVE5iYwIYNy9hKWmvWK2fZ5Xf74PoByCnFE7nuMkLXRadet03LKE89hNtqmLFRmLz9IFfgTrFU6gfvNwjhPpJHFZ3sDoKHy2gCK5lQEi4Hj9IXEipPKIguL76ElPsIdR4hnbOjROnI2pawARfnz3GG5M6dq6cal2poRUW4MNe2zk1NKROizA5c2nM7xiHbN5pvalO1J_pKo-yOhqB0RsCqDFEdu1TWcBpzgISTSUC7OkKJe3ssFzBpOgsa3RN8LDNJ95me6fYs932qQctl96C2Lh_8aesNngpd4chGwZqVEUCzci-l1xSX5JMOlIsIX0YXAj20L9wUKK32zlDmReaiEmtVBIQOp0yTe0RaWV7V8bZjR6nF3HogtpUQpV_Y6Gn1QHzepkQBmPCAGsFen7E5ea3D31nAYfzs5Zlr3FNe1oTpF6FxQFm000F__0m00)
 ## 4. Phân tích ca sử dụng Maintain Employee Information
 
 ## 5. Phân tích ca sử dụng Maintain Purchase Order
