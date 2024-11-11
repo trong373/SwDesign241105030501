@@ -200,7 +200,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-// Lớp Employee 
+
 class Employee {
     private String employeeID;
     private String name;
@@ -219,7 +219,6 @@ class Employee {
     }
 }
 
-// Lớp Timecard 
 class Timecard {
     private String timecardID;
     private Date date;
@@ -258,7 +257,7 @@ class Timecard {
         return "Timecard ID: " + timecardID + ", Date: " + date + ", Hours Worked: " + hoursWorked;
     }
 }
-// Lớp TimecardManager 
+
 class TimecardManager {
     private Map<String, ArrayList<Timecard>> timecardDatabase = new HashMap<>();
 
