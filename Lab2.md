@@ -195,13 +195,18 @@
 ## 7. Viết code Java mô phỏng ca sử dụng Maintain Timecard.
 
 package maintaintimerecard;
+
 import java.util.ArrayList;
+
 import java.util.Date;
+
 import java.util.HashMap;
+
 import java.util.Map;
 
 
 class Employee {
+
     private String employeeID;
     private String name;
 
@@ -220,6 +225,7 @@ class Employee {
 }
 
 class Timecard {
+
     private String timecardID;
     private Date date;
     private float hoursWorked;
@@ -259,6 +265,7 @@ class Timecard {
 }
 
 class TimecardManager {
+
     private Map<String, ArrayList<Timecard>> timecardDatabase = new HashMap<>();
 
     // Thêm một bảng chấm công mới
@@ -305,7 +312,9 @@ class TimecardManager {
         }
     }
 }
+
 public class Main {
+
     public static void main(String[] args) {
         Employee emp1 = new Employee("E001", "Alice");
         TimecardManager manager = new TimecardManager();
