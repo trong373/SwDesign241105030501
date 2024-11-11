@@ -157,7 +157,12 @@
   + Customer cung cấp thông tin liên hệ và địa chỉ thanh toán cho PurchaseOrder.
 ## 6. Phân tích ca sử dụng Run Payroll
 - Xác định các lớp phân tích cho ca sử dụng: Trong ca sử dụng "Run Payroll" , các lớp phân tích chính sẽ bao gồm:
- 
+  + PayrollSystem: Đại diện cho hệ thống thực hiện các hoạt động tính toán và thanh toán lương cho nhân viên.
+  + Employee: Đối tượng nhân viên, chứa các thông tin cá nhân cần thiết cho việc tính lương và phương thức thanh toán.
+  + Timecard: Lưu trữ dữ liệu về giờ làm việc của nhân viên, bao gồm cả giờ làm thêm, dùng để tính lương.
+  + PurchaseOrder: Đại diện cho các đơn đặt hàng hoặc giao dịch của nhân viên, dùng để tính các khoản hoa hồng nếu có.
+  + BankSystem: Hệ thống ngân hàng xử lý giao dịch chuyển khoản nếu nhân viên chọn phương thức thanh toán qua chuyển khoản.
+  + Paycheck: Đại diện cho phiếu lương hoặc các giao dịch thanh toán được tạo cho nhân viên.
 - Mô tả hành vi thông qua biểu đồ sequence:
   ![Sequence Diagram](https://www.planttext.com/api/plantuml/png/X5F1YjH04BtdA-geCFw01rbc610K9fWWNjjEasucwSuctOivU_Iq9n4HPrn4L0PS58JqOG-zx7_q5-mlMDqxwoIBO227TBtt-jMhohMzEEeqQRMfgwHR2mcjwbX2g5OjfAHlLLLbVQTP3QI3D4iQn0eg6Y8rBEkcKZrZeRISL79HCqhQ8bJonQIKcfPoqh5LMx0sYgwcTT9JpkWwbgRKEP7hWvbvbYHf1WyUeIru24-ujny5N9vw-qwMyCp8M_zxr191J_tmkOU2I0wTsr8EahjF4aw4-oQ1-k6B1Cr3LIktbKcbL0FFlNqleFRshHZ34y3dHZbVe7JUcXvU6Rn0mqi_dA47ol6h1kf-oN84JrTtu9UdLriPd0-_DN2tGUezwOSBWzIVzyVCq6ZkTcYmklg1f18ARyy9w3OqK0flFq3bDlLihnd5Pj1mDr2el3qJCpXn6rW7PmPftdwF-gJ2vFbUKsEKN-auYI0QqUTuBD1Q0roXNGh71cz7ObGPEOsH-66hudsuLmqNiQMzyGD-SJkSXGcPeR7cds1MTUo_7YatlRUl9NQemX3ks9fd4rkbjpk1iH4LSdmJzg4C0uwn_QNE3zc_mAN19V33JevfD_vaaOHtDAh72eL0no6F5p8vGc3uu_u0003__mC0)
 - Xác định một số thuộc tính và quan hệ giữa các lớp phân tích:
@@ -179,3 +184,11 @@
    + Lớp Paycheck:
      * Thuộc tính: paycheckID, grossPay, netPay, deductions.
      * Quan hệ: Được tạo bởi PayrollSystem và cung cấp cho Employee khi phương thức thanh toán là qua thư hoặc nhận trực tiếp.
+- Biểu đồ lớp mô tả các lớp phân tích:
+  
+  ![Class Diagram](https://www.planttext.com/api/plantuml/png/Z9F1JiCm38RlVOfe9pZq1NP04neJEo0cRHBda7fhr2OPjZDK8PwC0u_4Av1stPfqa-1IDVRV_xCTz-VhUqOiaRsfCwgq5UW8CbLB8h6I3RgwNZV4OCH79aGkziVON39CHViyHHS8RnwiQgPYpQZjBYI4G6zxbvlRx3FhZH_CldODGEy9_N4vZxxD1SbQOh1Rr4vo5ta52rlDbCW2su3b9-3I5IaS5EW3X09Y-4ORK1AB7buwZ_JYi88YHha380VbOvkE4qNSkH0xu9FXqcvT35fvLAKaUCO2iAUvzdtKfpJEMuuPoXcZYRIpGxH39PPZthsqLN9NZDAIL1nyHiWeisR9dfAvxT4f8DeCegGjsQWIL3KiH7SS4NPXZoX8uxPiQ22D553u3a1fenOm3FX4EjBJRSppks6DfcAYBOTl59DurrnEhgZFznxK2A5IE01T4wRtzfSwclg_oZYFBwWLGcWps9ux6HVgwI9zKTvHCmDRj3_nBm000F__0m00)
+- Ý nghĩa của biểu đồ lớp trong hệ thống "Run Payroll":
+  + PayrollSystem là trung tâm của quy trình Run Payroll, lấy dữ liệu từ Employee, Timecard, và PurchaseOrder.
+  + Employee chứa thông tin cá nhân và lương, sử dụng Timecard và PurchaseOrder để cung cấp thông tin cần thiết cho PayrollSystem.
+  + BankSystem xử lý các giao dịch ngân hàng khi phương thức thanh toán là chuyển khoản.
+  + Paycheck chứa thông tin phiếu lương, được tạo bởi PayrollSystem khi thanh toán qua thư hoặc trực tiếp.
