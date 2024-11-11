@@ -80,28 +80,38 @@
   + FileManager quản lý việc lưu trữ Report cuối cùng nếu nhân viên yêu cầu lưu. 
 ## 3. Phân tích ca sử dụng Login
 - Xác định các lớp phân tích cho ca sử dụng: Trong ca sử dụng " Login" , các lớp phân tích chính sẽ bao gồm:
-  + User: Đại diện cho người dùng của hệ thống, có thể là nhân viên hoặc quản trị viên Payroll.
-  + LoginManager: Quản lý quy trình đăng nhập, xử lý xác thực thông tin đăng nhập.
-  + Database: Lưu trữ thông tin người dùng để xác minh tài khoản.
-  + Session: Đại diện cho phiên làm việc của người dùng sau khi đăng nhập thành công.
-- Mô tả hành vi thông qua biểu đồ sequence:![Sequence Diagram](https://www.planttext.com/api/plantuml/png/PD2nJiCm40RWtKznwjGEVO4Eg4XiG1T0OdKJox5epi7d57O6PXu0AHKR4X832ydGmHNluIVW5JWJ5LfrEbi-V_VhlhlrbBnqlYuNWcuCWhEaXCoyTJ2u8kK680cEqrs8tmBZ8pYpsk2vHAcLWmdCYjY-LU2By84QF2kRfyq37x5_6DOCeImLB4C3bIIwiouVYJs6sHFfvLoIOl8wh38e3HQxAkglzzWz6yZ39shnrpu-Z7GQsxM7spgsBt2_jGu6NYWYOv7xBsExib0L9hmYB49JmjB4xZ638R9K_nifJyCbIwb6OYka2FrwsEeJpmEB-ulO_Il4L66Uzlu3003__mC0)
+  + User: Đại diện cho người dùng (diễn viên), là người thực hiện đăng nhập.
+  + LoginForm: Biểu mẫu đăng nhập nơi người dùng nhập thông tin tên và mật khẩu.
+  + AuthenticationService: Xác thực thông tin đăng nhập bằng cách kiểm tra tên và mật khẩu của người dùng.
+  + SessionManager: Quản lý phiên đăng nhập của người dùng sau khi xác thực thành công.
+  + ErrorDisplay: Hiển thị thông báo lỗi nếu tên hoặc mật khẩu không hợp lệ.
+- Mô tả hành vi thông qua biểu đồ sequence:![Sequence Diagram](https://www.planttext.com/api/plantuml/png/N8yzRW8n48Lxd-A92YIum1OHD5H0Wv1ehSN25dYCx5au02V82I1begI8HCKM5EOYUmAkW4s11Ctyls_qRlMb7rXwhknQX9KXU1SKX2pPURHcGVaMPC0Wz-8HqVl0o2qD3Pst1SPDVO2DHuAElwHn_RpkQGdIpVbl8pBWJJ1vRC3nXrwFiOr7s5GnLcdmNOcdAYC65Mj5R4h9nj5K-QqfLO5v_2h1kgd_SugdXEDaersbpoIjwc8ZGzWvl-Y8lg95Dde7003__mC0)
 - Xác định một số thuộc tính và quan hệ giữa các lớp phân tích:
-  + User:
-    * Nhiệm vụ: Nhập thông tin đăng nhập và gửi yêu cầu vào hệ thống để xác thực.
-    * Thuộc tính: username, password.
-    * Quan hệ: Tương tác với LoginManager để thực hiện đăng nhập.
-  + LoginManager:
-    * Nhiệm vụ: Xử lý yêu cầu đăng nhập từ người dùng, gửi yêu cầu xác minh tới Database, và tạo Session nếu đăng nhập thành công.
-    * Thuộc tính: loginAttempts
-    * Quan hệ: Nhận yêu cầu từ User và xác thực với Database.
-  + Database:
-    * Nhiệm vụ: Lưu trữ thông tin người dùng và cung cấp thông tin xác thực cho LoginManager khi có yêu cầu.
-    * Thuộc tính: userCredentials, userRoles
-    * Quan hệ: Xác thực thông tin đăng nhập cho LoginManager.
-  + Session:
-    * Nhiệm vụ: Quản lý trạng thái đăng nhập của người dùng trong hệ thống sau khi đăng nhập thành công.
-    * Thuộc tính: sessionID, userRole, startTime
-    * Quan hệ: Được tạo bởi LoginManager khi đăng nhập thành công, cung cấp trạng thái cho User.
+ Lớp User:
+
+Nhiệm vụ: Cung cấp thông tin đăng nhập (tên và mật khẩu).
+Thuộc tính: userID, username, password.
+Quan hệ: Tương tác với LoginForm để nhập thông tin đăng nhập.
+Lớp LoginForm:
+
+Nhiệm vụ: Thu thập thông tin đăng nhập từ người dùng và chuyển tới AuthenticationService để xác thực.
+Thuộc tính: inputUsername, inputPassword.
+Quan hệ: Nhận dữ liệu từ User và gửi đến AuthenticationService để xác thực.
+Lớp AuthenticationService:
+
+Nhiệm vụ: Kiểm tra tên và mật khẩu từ LoginForm để xác thực người dùng.
+Thuộc tính: userDatabase (chứa thông tin người dùng hợp lệ).
+Quan hệ: Nhận thông tin từ LoginForm, kiểm tra và gửi phản hồi về trạng thái đăng nhập.
+Lớp SessionManager:
+
+Nhiệm vụ: Khởi tạo phiên làm việc cho người dùng sau khi xác thực thành công.
+Thuộc tính: sessionID, userID, sessionExpiry.
+Quan hệ: Tương tác với AuthenticationService để thiết lập phiên cho người dùng đã đăng nhập thành công.
+Lớp ErrorDisplay:
+
+Nhiệm vụ: Hiển thị thông báo lỗi nếu thông tin đăng nhập không hợp lệ.
+Thuộc tính: errorMessage.
+Quan hệ: Nhận thông tin từ AuthenticationService khi xảy ra lỗi xác thực.
 - Biểu đồ lớp mô tả các lớp phân tích:
 
   ![Class Diagram](https://www.planttext.com/api/plantuml/png/P93D3S8m38NldY8BT0LKH2z8SE5d04EjAY9rgjXL3uZ9E30IAv2qfRJYPlkzPt_9-_dAHJ5eMpkGcsKJl11S7OgOir0mTp0cCsqi6MlgcoQAdGybF61qxdnbUO-CrPHmQRHMfRfH-JaBLBoWq6pl9b19h1QTJBE3TpHB7Kd4UXv3CdJROc4VfFIMausWCTlpPzbgWGSBrgH-aVwLyIn0Jboc7_e0003__mC0)
