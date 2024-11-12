@@ -227,8 +227,11 @@ class Employee {
 class Timecard {
 
     private String timecardID;
+    
     private Date date;
+    
     private float hoursWorked;
+    
     private String employeeID;
 
     public Timecard(String timecardID, Date date, float hoursWorked, String employeeID) {
