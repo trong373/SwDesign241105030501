@@ -95,7 +95,7 @@ f. Paycheck :
   + PaycheckGenerator: Lớp để tạo phiếu lương cho nhân viên dựa trên các thông tin về lương, giờ làm, và khấu trừ.
   + PaycheckPrinter: Lớp xử lý việc in phiếu lương nếu phương thức nhận lương không phải là chuyển khoản.
 
-h. ProjectManagementDatabase :
+g. ProjectManagementDatabase :
 
 - Lớp phân tích: 
   - Nhiệm vụ: Lưu trữ thông tin về các dự án mà nhân viên tham gia.
@@ -163,7 +163,7 @@ f. Package `utility` :
   + `PaycheckGenerator`: Lớp tạo phiếu lương cho nhân viên dựa trên thông tin lương và khấu trừ.
   + `PaycheckPrinter`: Lớp in phiếu lương nếu phương thức nhận lương không phải là chuyển khoản.
 
- 7. Package `scheduler` :
+h. Package `scheduler` :
 - Mô tả: Chứa các lớp quản lý việc tự động hóa các tác vụ như tính toán bảng lương.
 - Các phần tử thiết kế:
   + `PayrollScheduler`: Lập lịch tự động cho việc chạy bảng lương theo thời gian biểu định trước (thứ Sáu hàng tuần và ngày làm việc cuối cùng của tháng).
