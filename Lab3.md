@@ -176,11 +176,3 @@ h. Package `scheduler` :
 | `utility`             | `PaycheckGenerator`, `PaycheckPrinter`                                                                      |
 | `scheduler`           | `PayrollScheduler`                                                                                          |
 
-- Giải thích chi tiết về từng Package:
-  + Model: Gồm các lớp đại diện dữ liệu trực tiếp của hệ thống. Các lớp trong gói này bao gồm thông tin cơ bản về nhân viên, bảng chấm công, đơn đặt hàng và phiếu lương.
-  + Dao: Gói này quản lý việc truy cập cơ sở dữ liệu cho các lớp dữ liệu trong gói `model`. Các lớp trong `dao` sẽ chịu trách nhiệm thực hiện các thao tác CRUD (Create, Read, Update, Delete) trên các đối tượng trong cơ sở dữ liệu.
-  + Service: Xử lý các nghiệp vụ chính liên quan đến dữ liệu, đồng thời thực hiện các logic phức tạp liên quan đến tính toán lương, hoa hồng, và các giao dịch với ngân hàng.
-  + controller: Các lớp trong gói này xử lý các yêu cầu của người dùng từ giao diện, điều hướng các yêu cầu đó đến các lớp dịch vụ phù hợp.
-  + Adapter: Chứa các lớp chịu trách nhiệm kết nối và tích hợp với các hệ thống bên ngoài, chẳng hạn như hệ thống ngân hàng.
-  + Utility: Gói tiện ích chứa các lớp hỗ trợ các chức năng cụ thể trong hệ thống, chẳng hạn như tạo và in phiếu lương cho nhân viên.
-  + Scheduler: Quản lý các tác vụ tự động, đảm bảo hệ thống bảng lương chạy đúng theo lịch trình định sẵn.
