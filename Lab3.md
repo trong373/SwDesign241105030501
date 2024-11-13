@@ -63,7 +63,6 @@ b. Timecard :
   + TimecardController: Lớp bộ điều khiển xử lý yêu cầu từ giao diện người dùng về việc nhập, cập nhật và xóa bảng chấm công.
 
 c. PurchaseOrder :
-
 - Lớp phân tích:
   + Nhiệm vụ: Lưu trữ thông tin về các đơn đặt hàng của nhân viên hưởng hoa hồng.
 - Phần tử thiết kế:
@@ -72,7 +71,6 @@ c. PurchaseOrder :
   + PurchaseOrderController: Lớp bộ điều khiển xử lý các yêu cầu từ giao diện người dùng liên quan đến quản lý đơn đặt hàng.
 
 d. PayrollSystem :
-
 - Lớp phân tích:
   - Nhiệm vụ: Quản lý toàn bộ quy trình xử lý bảng lương, bao gồm tính toán lương và xử lý thanh toán.
 - Phần tử thiết kế:
@@ -81,7 +79,6 @@ d. PayrollSystem :
   - PayrollScheduler: Thành phần để tự động khởi chạy bảng lương vào thứ Sáu hàng tuần và ngày làm việc cuối cùng của tháng.
 
 e. BankSystem :
-
 - Lớp phân tích:
   + Nhiệm vụ: Thực hiện các giao dịch thanh toán trực tiếp vào tài khoản ngân hàng của nhân viên.
 - Phần tử thiết kế:
@@ -96,7 +93,6 @@ f. Paycheck :
   + PaycheckPrinter: Lớp xử lý việc in phiếu lương nếu phương thức nhận lương không phải là chuyển khoản.
 
 g. ProjectManagementDatabase :
-
 - Lớp phân tích: 
   - Nhiệm vụ: Lưu trữ thông tin về các dự án mà nhân viên tham gia.
 - Phần tử thiết kế:
