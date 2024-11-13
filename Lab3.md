@@ -162,7 +162,7 @@ f. Package `utility` :
 h. Package `scheduler` :
 - Mô tả: Chứa các lớp quản lý việc tự động hóa các tác vụ như tính toán bảng lương.
 - Các phần tử thiết kế:
-  + `PayrollScheduler`: Lập lịch tự động cho việc chạy bảng lương theo thời gian biểu định trước (thứ Sáu hàng tuần và ngày làm việc cuối cùng của tháng).
+  + `PayrollScheduler`: Lập lịch tự động cho việc chạy bảng lương theo thời gian biểu định trước.
 
 # Tóm tắt Ánh xạ các Phần Tử Thiết Kế 
 
