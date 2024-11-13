@@ -42,7 +42,7 @@ c. ProjectManagementDatabase:
     * Nó gửi thông tin về mã phí dự án theo yêu cầu từ PayrollSystem.
   + Employee:
     * Nhân viên có thể xem thông tin về các mã phí dự án khi hệ thống bảng lương hiển thị thông tin này.
-Dưới đây là cách ánh xạ các lớp phân tích từ ca sử dụng Payroll System đến các phần tử thiết kế tương ứng:
+
 
 ## 2. Ánh xạ Lớp Phân Tích đến Phần Tử Thiết Kế:
 
