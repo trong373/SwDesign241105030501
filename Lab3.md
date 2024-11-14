@@ -101,15 +101,15 @@ g. ProjectManagementDatabase :
 
 # Tóm tắt Ánh xạ Lớp Phân Tích đến Phần Tử Thiết Kế
 
-| Lớp Phân Tích             | Phần Tử Thiết Kế                                                                                           |
-|---------------------------|-----------------------------------------------------------------------------------------------------------|
+| Lớp Phân Tích              | Phần Tử Thiết Kế                                                                                          |
+|----------------------------|-----------------------------------------------------------------------------------------------------------|
 | `Employee`                 | `EmployeeDAO`, `EmployeeService`, `EmployeeController`                                                    |
 | `Timecard`                 | `TimecardDAO`, `TimecardService`, `TimecardController`                                                    |
-| `PurchaseOrder`            | `PurchaseOrderDAO`, `PurchaseOrderService`, `PurchaseOrderController`                                      |
-| `PayrollSystem`            | `PayrollService`, `PayrollController`, `PayrollScheduler`                                                  |
-| `BankSystem`               | `BankAdapter`, `BankService`                                                                               |
-| `Paycheck`                 | `PaycheckGenerator`, `PaycheckPrinter`                                                                     |
-| `ProjectManagementDatabase`| `ProjectDAO`, `ProjectService`                                                                             |
+| `PurchaseOrder`            | `PurchaseOrderDAO`, `PurchaseOrderService`, `PurchaseOrderController`                                     |
+| `PayrollSystem`            | `PayrollService`, `PayrollController`, `PayrollScheduler`                                                 |
+| `BankSystem`               | `BankAdapter`, `BankService`                                                                              |
+| `Paycheck`                 | `PaycheckGenerator`, `PaycheckPrinter`                                                                    |
+| `ProjectManagementDatabase`| `ProjectDAO`, `ProjectService`                                                                            |
 
 ## 3. Ánh xạ các phần tử thiết kế vào các gói:
 Dưới đây là cách ánh xạ lại các phần tử thiết kế của hệ thống Payroll System mà không cần sử dụng gói `entity`, thay vào đó sẽ gộp các lớp đại diện dữ liệu vào gói `model` hoặc `dao` tùy thuộc vào vai trò của chúng:
