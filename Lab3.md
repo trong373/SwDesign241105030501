@@ -3,7 +3,7 @@
 ## 1. Biểu đồ ngữ cảnh hệ thống con:
  a. BankSystem:
  - Biểu đồ Ngữ Cảnh:
-   ![Context Diagram](https://www.planttext.com/api/plantuml/png/T90nJiCm58Ptd-8VwL2nTwYgI15hfUO2Rch5KPndi9rA4MAe69cu0GKXf4fiJCdGmLp49-0As1AKBgpV_xvlU5_ZSM4TDwvh5RDDJJ3Q2iPBfmsMl3TQgLLldMZ1BPQhdoNZrFpXx1VdxRNIlH09vemPKJfEbHBdzxSCY25Cf_CeOdOLnlSQlJzqACFmrg6gkSOcZ0-bH2cxFeptX4RgCBnGShFaHZasPeM95Dimxj24uUXmqoLmdhWef7-YcF8VL5qMCWol3kimxEl9gJP77bioNM3jz_hVsETZ70Wa_JDXM_i3iJks4BH9x_i6003__mC0)
+   ![Context Diagram](https://www.planttext.com/api/plantuml/png/TCmnIWGn5CRnFgVuIYq6-oqMMHXiXPqBP6EO33FpefbaOP0j5aihR-0g8YpOMKsABU95SWAlO0ABg63xV-_xVVh3-M2viQxlsD0s1AC7oHWNLXiiEBNBSR2o1n-mM1vpsLztUfGonv8PAIodkfEuvAFHNNTSt3ByAKKnJmXck8Z-hS4OzWuYJgyETSCrhgA_5mf2kJ7wEqAhT9oUAJ5vLUJrRs-6ogGFhAFVeetJmUB6vV2JEwbKUAJ4XdUgpoeLfnUBLPnspUctF4UPCPLVi0ex_Q_syP0E15BXYR1kmfxOvWi00F__0m00)
 - Giải thích các thành phần trong biểu đồ ngữ cảnh BankSystem:
   + PayrollSystem:
     * Đây là hệ thống bảng lương chính, gửi các yêu cầu thanh toán lương qua ngân hàng.
@@ -32,7 +32,7 @@ b. PrintService:
 c. ProjectManagementDatabase:
 - Biểu đồ Ngữ Cảnh:
   
-    ![Context Diagram](https://www.planttext.com/api/plantuml/png/RCynJiCm50RWtQVuBy056527Hh1KYfI9yTMnwa3yNDalI9aPUugM0QbI1oGcF33u93u1Lo29wCRoXlT_-gN_9tsleb2GmVKgFdUCuADHfCK7r3G6t_VD6CKuK4JTN9FWduoM3J7jZ3CiQnBQKZIBsgp_MENslH_DygsKgXlStCqnRl6OpmDq-NeVuF8RzZPVq9RqWNnaDPDPDXEyB-dIeIMsYFcexNzywQqc_D2LzCeGMz9XklcJTv1fr9L2Mm-s-SHuwVAPbLePRkVjlm000F__0m00)
+    ![Context Diagram](https://www.planttext.com/api/plantuml/png/ZD0zQW9150VmVaxnlu0Ni0Y2RYaiR9gKB-jZDSx7ClCci8Y74H4Xa4AmYaMAEOady0gPbJG1arY-hnz_tkNqEGf2NgBHAYmN5ju5LbIByoYfyqxhgWl21XHGLlWU5QRLhcFkkmMKybmBsKOpIkzUSZ4bImqRjZ8XeMSAZ9K2Uc8mUFXZQuYdz1PHdp_s4IPjqSxJEsRdqm5fOw_4hxTNkSh4EDgc9tRjRQBuDyIZZnrUis0XytJCdEJdt1-Z-9dYbh5M8xQp_l5V0000__y30000)
 - Giải thích các thành phần trong biểu đồ ngữ cảnh ProjectManagementDatabase:
   + PayrollSystem:
     * Hệ thống bảng lương yêu cầu thông tin về mã phí dự án để tính toán báo cáo lương hoặc tạo báo cáo chi tiết về các dự án mà nhân viên tham gia.
@@ -176,3 +176,6 @@ h. Package `scheduler` :
 | `utility`             | `PaycheckGenerator`, `PaycheckPrinter`                                                                      |
 | `scheduler`           | `PayrollScheduler`                                                                                          |
 
+## 4.Vẽ biểu đồ mô tả các layers trong hệ thống và quan hệ giữa chúng:
+
+![Diagram](https://www.planttext.com/api/plantuml/png/T9D1IWCn58RtESMZ-rx0XRHL474KjIg2T17JE8PEav1a2eEuSk7A8mXs8O9Gx5O7SJ4mzvWJU0KpwLGdqvfLUE___hpy8T_fLqSRh4myZf0UCGvAQ8gGn6I4GmgjGqKrvGOR9ZW4EA6g1JS8xBeurLJ1BZTKNM521u1kQrnNoeYHTTYMu4Q9AA9gi2ZqgPemQ-3nlLWpJhM6G8ICD2pyPcLpXYCsT0VwJjlOOEWIulIUpJ6LGZCZL59PEEa-bhAShUbnYJNzHVj70IoB5NmW_ABbLo9gjpUz0603Jl9vFkKXc6nAW8Vvl4WV6GopTnuYJ-hOPLOMF2_I6KJP9oJPQmoa-7Y9qL_VgHivMMYdI1-OFUQQ5UczX4cHFgCLcMDhSLfkp-hlnc0KXc6Hla5Kyl4_Q2tNye8gJihnPj97wog7rTEtNBbZDXWFyZIBHEgXMop8vx6TiuGcsPC0r--j8niFjeQj53tKeNnO_f0V0000__y30000)
