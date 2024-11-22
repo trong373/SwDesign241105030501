@@ -35,17 +35,20 @@
      - `LoginForm`: Quản lý giao diện nhập liệu của người dùng.
      - `AuthenticationService`: Quản lý việc xác thực đăng nhập.
      - `Employee`: Đại diện cho người dùng đã được xác thực.
-
-## 2. Trường hợp sử dụng: Duy trì thẻ chấm công
+       
+### 1.6. Lý do lựa chọn thiết kế:
+   - Mục tiêu: Đảm bảo tính bảo mật cao nhất cho quy trình xác thực mà vẫn giữ cho giao diện người dùng đơn giản và dễ sử dụng.
+   - Lý do: Việc chuyển toàn bộ logic xác thực vào một thành phần riêng (AuthenticationService) giúp tập trung hóa quá trình xác thực và cải thiện khả năng bảo mật, giảm nguy cơ xảy ra lỗi.
+## 2. Maintain Timecard:
 ### 2.1. Mô tả tương tác giữa các đối tượng thiết kế:
    - Đối tượng chính:
      - `TimecardForm`: Giao diện để nhập giờ làm việc.
      - `TimecardController`: Xử lý logic nghiệp vụ liên quan đến thẻ chấm công.
      - `Timecard`: Lưu trữ thông tin về giờ làm việc.
    - Quy trình:
-     1. Nhân viên nhập thông tin vào `TimecardForm`.
-     2. Thông tin được chuyển đến `TimecardController`.
-     3. `TimecardController` xử lý dữ liệu và lưu vào cơ sở dữ liệu qua `DatabaseService`.
+     - Nhân viên nhập thông tin vào `TimecardForm`.
+     - Thông tin được chuyển đến `TimecardController`.
+     - `TimecardController` xử lý dữ liệu và lưu vào cơ sở dữ liệu qua `DatabaseService`.
 
 ### 2.2. Đơn giản hóa sơ đồ tuần tự bằng hệ thống con:
    - Hệ thống con: `Timecard Management Subsystem`.
@@ -67,7 +70,10 @@
      - `TimecardController`: Xử lý các nghiệp vụ liên quan đến thẻ chấm công.
      - `Timecard`: Lưu trữ thông tin về giờ làm việc của nhân viên.
 
-## 3. Trường hợp sử dụng: Chạy bảng lương
+### 2.6. Lý do lựa chọn thiết kế
+   - Mục tiêu: Tối ưu hóa quy trình nhập và xử lý dữ liệu chấm công, đảm bảo tính chính xác và khả năng mở rộng hệ thống.
+   - Lý do: Việc tách biệt logic nghiệp vụ ra khỏi giao diện không chỉ cải thiện khả năng bảo trì mà còn cho phép hệ thống dễ dàng thích ứng với các thay đổi trong yêu cầu kinh doanh mà không ảnh hưởng đến trải nghiệm người dùng.
+## 3. Run Payroll:
 ### 3.1. Mô tả tương tác giữa các đối tượng thiết kế:
    - Đối tượng chính:
      - `PayrollController`: Điều phối quá trình tính lương.
@@ -102,3 +108,7 @@
      - `BankSystem`: Quản lý giao dịch ngân hàng.
      - `PrintService`: Xử lý việc in phiếu lương.
      - `Paycheck`: Lưu thông tin chi tiết về lương của nhân viên.
+
+### 3.6. Lý do lựa chọn thiết kế
+   - Mục tiêu: Đảm bảo tính chính xác trong quy trình tính lương và quản lý giao dịch ngân hàng một cách hiệu quả.
+   - Lý do: Việc chia nhỏ các chức năng trong hệ thống xử lý bảng lương giúp giảm thiểu sai sót, cải thiện khả năng quản lý và tăng tính linh hoạt khi mở rộng hệ thống hoặc thay đổi quy trình nghiệp vụ.
