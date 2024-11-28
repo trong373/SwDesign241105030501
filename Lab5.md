@@ -1,6 +1,5 @@
 # LAB5 - Thiết kế các hệ thống con trong hệ thống "Payroll System"
 
-
 ### 1. Authentication Subsystem
 - Mục đích: Xử lý việc đăng nhập và xác thực người dùng.
 - Thành phần:
@@ -13,7 +12,6 @@
   - `LoginForm` chuyển thông tin đến `AuthenticationService`.
   - `AuthenticationService` xác thực thông tin, trả về phiên người dùng nếu hợp lệ.
 
-
 ### 2. Timecard Management Subsystem
 - Mục đích: Quản lý việc ghi lại giờ làm việc của nhân viên.
 - Thành phần:
@@ -25,8 +23,6 @@
   - Nhân viên nhập giờ làm việc thông qua `TimecardForm`.
   - `TimecardController` xác minh và cập nhật thông tin vào `IProjectManagementDatabase`.
   - Thẻ chấm công được lưu vào cơ sở dữ liệu thông qua lớp `PayrollDBManager`.
-
-
 
 ### 3. Payroll Processing Subsystem
 - Mục đích: Xử lý bảng lương cho nhân viên.
@@ -42,8 +38,6 @@
   - Lưu phiếu lương (`Paycheck`) vào cơ sở dữ liệu.
   - Gửi thông tin lương đến `IBankSystem` hoặc `IPrintService`.
 
-
-
 ### 4. Database Management Subsystem
 - Mục đích: Cung cấp các dịch vụ quản lý dữ liệu cho hệ thống.
 - Thành phần:
@@ -51,10 +45,8 @@
   - `Transaction:` Quản lý các hoạt động trong cơ sở dữ liệu theo giao dịch.
   - `Map:` Cấu trúc lưu trữ key-value cho dữ liệu nhân viên, thẻ chấm công và lệnh mua hàng.
 - Tương tác chính:
-  1. Khởi tạo hoặc truy xuất dữ liệu qua `PayrollDBManager`.
-  2. Thực hiện các thao tác lưu, cập nhật, và xóa đối tượng (như `Employee`, `Timecard`, `Paycheck`).
-
-
+  - Khởi tạo hoặc truy xuất dữ liệu qua `PayrollDBManager`.
+  - Thực hiện các thao tác lưu, cập nhật, và xóa đối tượng (như `Employee`, `Timecard`, `Paycheck`).
 
 ### 5. Security Subsystem
 - Mục đích: Bảo vệ dữ liệu và duy trì quyền truy cập an toàn.
