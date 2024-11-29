@@ -47,6 +47,7 @@
 - Tương tác chính:
   - Khởi tạo hoặc truy xuất dữ liệu qua `PayrollDBManager`.
   - Thực hiện các thao tác lưu, cập nhật, và xóa đối tượng (như `Employee`, `Timecard`, `Paycheck`).
+
 ![Diagram](https://www.planttext.com/api/plantuml/png/Z991IiGm58RtEKMOrRYO2nGfmr0HGK5mBl0cVKx397abIOKYhbru2F447g0BTzwZ9_0AfZLncCuWPb78-yENxxtcg_jOEW_MDrenjvE6MtB8X0Bd-2sqbfGgLZTWO8kMFp8Ubh087Wlmi067yxECFv0inwX6UqzMhoqO1y9BCdCqNlesutVUIhCDXrT42i6m9nQlkT2reXOnucMP3ezR0neF2a5fN_Y5hAL60RQC48pCgqDOHOrr6I-esIWSAsLe9HJ2TyyAVOiAnUvl5cXgZFyFR1nY7DU46MIkfVFdQGRvcFhOJ4fJSpzf7VLIcdJpuTAZVxPOv5E7ZCyk9H0l--v5L5nyld7NTw_3_fqhsNVFpOnDlGTEiZmP9icJON9aIpJbyDQ-0G00__y30000)
 ### 5. Security Subsystem
 - Mục đích: Bảo vệ dữ liệu và duy trì quyền truy cập an toàn.
@@ -56,5 +57,6 @@
 - Tương tác chính:
   - `SecurityAccess` xác định quyền của người dùng đối với các thực thể như `Timecard` hoặc `Paycheck`.
   -  Hạn chế truy cập trái phép dựa trên vai trò người dùng.
+
 ![Diagram](https://www.planttext.com/api/plantuml/png/R96nJiCm48PtFyKf4qZq1QAgAZ15Oa2ja5WjzoWMgPtUdP4inC2ZC30oi3O30q-I9-0LC6dIj51lT_RttM_xk_wSicYIi2eLFrW7v1cLAJKppD44iXBFZS5KFYb8wn79tiLhf9LbjjxnIM2aOf73NCYwvHbe8wdVrwSvN7XVedOjlYJjP2ly1nAo3sJm2Fgikan56mfl4je5iZj3Mr823XhL43M7AyiotcvE1kci6zmP-np5eLbYDPWJ--TvHgF9VheSijklLmDotzGV1jOXDlMBouvHizsziyjcyrRrXq4eH33DvhtAr1JTulUJVW000F__0m00)
 
